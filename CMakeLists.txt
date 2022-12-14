@@ -3,4 +3,4 @@ project(homework)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(homework main.cpp libraries.h app/framework.cpp app/lib/std.cpp.h)
+add_executable(homework main.cpp libraries.h app/framework.cpp app/lib/std.cpp.h app/String.cpp app/String.h)

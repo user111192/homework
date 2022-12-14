@@ -7,8 +7,6 @@
 // #include "libraries.h"
 // #include "app/framework.cpp"
 
-#define final const
-
 // Import namespace 'std'
 using namespace std;
 
