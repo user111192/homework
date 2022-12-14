@@ -21,7 +21,6 @@ int main(int argc, char **argv) {
      * A 2D Array (char)
      * @return Exit code
      */
-
     // 读入数组
     int l;
     cin >> l;
