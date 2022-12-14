@@ -1,5 +1,7 @@
 // Import Libraries
 #include <iostream> // IO Library
+#include <fstream>
+#include <algorithm>
 
 
 // #include "libraries.h"
@@ -24,25 +26,31 @@ int main(int argc, char **argv) {
     // 读入数组
     int l;
     cin >> l;
-    int arr[l+1];
-    for (int i=0;i<l+1;i++)
-        arr[i] = 0; // (必须)设置初始值
+    int arr[l];
     for (int i=0;i<l;i++)
         cin >> arr[i];
-
-    int count = 1, m = INT32_MIN;
-    // 遍历数组
+    int mx = 0;
+    bool flag = false;
     for (int i=0;i<l;i++) {
-        for (int j=i;j<l;j++) {
-            int c = 0;
-            for (int k = i; k <= j; k++)
-                c += arr[k];
-            if (c >= m)
-                m = c;
+        if ((!flag) && arr[i] == *max_element(arr, arr+l)) {
+            flag = true;
+            continue;
         }
+        if (arr[i] > mx)
+            mx = arr[i];
     }
-    // 输出m
-    cout << m;
+    cout << mx << " ";
+    flag = false;
+    int ms = INT32_MAX;
+    for (int i=0;i<l;i++) {
+        if ((!flag) && arr[i] == *min_element(arr, arr+l)) {
+            flag = true;
+            continue;
+        }
+        if (arr[i] < ms)
+            ms = arr[i];
+    }
+    cout << ms;
     return 0;
 }
 
