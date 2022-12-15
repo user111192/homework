@@ -11,7 +11,6 @@
 // Import namespace 'std'
 using namespace std;
 
-void jntm();
 
 
 // Main Function
@@ -47,4 +46,5 @@ int main(int argc, char **argv) {
 }
 
 // Functions Definition
+
 
