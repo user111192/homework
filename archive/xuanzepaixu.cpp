@@ -2,7 +2,6 @@
 #include <iostream> // IO Library
 #include <fstream>
 #include <algorithm>
-#include <cmath>
 
 
 // #include "libraries.h"
@@ -10,9 +9,6 @@
 
 // Import namespace 'std'
 using namespace std;
-
-void jntm();
-
 
 // Main Function
 int main(int argc, char **argv) {
@@ -29,22 +25,23 @@ int main(int argc, char **argv) {
     int arr[l];
     for (int i=0;i<l;i++)
         cin >> arr[i];
-    for (int i=0;i<l;i++) {
-        int MaxPoint = i;
+    for (int i=0;i<l-1;i++) {
+        int MinPoint = i;
         for (int j=i;j<l;j++) {
-            if (arr[j] > arr[MaxPoint])
-                MaxPoint = j;
+            if (arr[j] < arr[MinPoint])
+                MinPoint = j;
         }
         // Swap
         int temp;
         temp = arr[i];
-        arr[i] = arr[MaxPoint];
-        arr[MaxPoint] = temp;
+        arr[i] = arr[MinPoint];
+        arr[MinPoint] = temp;
     }
     for (int i=0;i<l;i++)
-        cout << arr[i] << ' ';
+        cout << arr[i] << " ";
     return 0;
 }
 
 // Functions Definition
+
 
