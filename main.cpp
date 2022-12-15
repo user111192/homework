@@ -25,23 +25,18 @@ int main(int argc, char **argv) {
     // 读入数组
     int l;
     cin >> l;
-    int arr[l];
-    for (int i=0;i<l;i++)
-        cin >> arr[i];
-    for (int i=0;i<l;i++) {
-        int MaxPoint = i;
-        for (int j=i;j<l;j++) {
-            if (arr[j] > arr[MaxPoint])
-                MaxPoint = j;
-        }
-        // Swap
-        int temp;
-        temp = arr[i];
-        arr[i] = arr[MaxPoint];
-        arr[MaxPoint] = temp;
+    int arr[101];
+    for (int i=0;i<101;i++)
+        arr[i]=0;
+    for (int i=1;i<=l;i++) {
+        int x;
+        cin >> x;
+        arr[x]++;
     }
-    for (int i=0;i<l;i++)
-        cout << arr[i] << ' ';
+
+    for (int i=100;i>=1;i--)
+        for (int j=1;j<=arr[i];j++)
+            cout << i << " ";
     return 0;
 }
 
