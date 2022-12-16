@@ -11,7 +11,7 @@
 // Import namespace 'std'
 using namespace std;
 
-
+int a();
 
 // Main Function
 int main(int argc, char **argv) {
@@ -23,39 +23,23 @@ int main(int argc, char **argv) {
      * @return Exit code
      */
     // 读入数组
-    int l;
-    cin >> l;
-    int arr[101], arrb[101];
-    for (int i=1;i<=l;i++) {
-        int x;
-        cin >> arr[i] >> arrb[i];
+    int n, m;
+    cin >> n >> m;
+    int arr[n+1][m+1];
+
+    for (int i=1;i<=n;i++) {
+        for (int j=1;j<=m;j++)
+            cin >> arr[i][j];
     }
-    int m=0;
-
-    for (int i=1;i<=l;i++) {
-        for (int j=1;j<=l-i;j++)
-            if (arr[j] > arr[j+1]) {
-                // Swap
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-
-                temp = arrb[j];
-                arrb[j] = arrb[j+1];
-                arrb[j+1] = temp;
+    for (int i=2;i<=n;i++) {
+        for (int j=1;j<=m;j++){
+            if (arr[i-1][j] > arr[i][j]) {
+                cout << "No";
+                return 0;
             }
+        }
     }
-    for (int i=1;i<=l;i++) {
-        if (arrb[i])
-            continue;
-        cout << arr[i] << ' ';
-    }
-    for (int i=1;i<=l;i++) {
-        if (!arrb[i])
-            continue;
-        cout << arr[i] << ' ';
-    }
-
+    cout << "Yes";
     return 0;
 }
 
