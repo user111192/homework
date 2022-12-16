@@ -25,18 +25,37 @@ int main(int argc, char **argv) {
     // 读入数组
     int l;
     cin >> l;
-    int arr[101];
-    for (int i=0;i<101;i++)
-        arr[i]=0;
+    int arr[101], arrb[101];
     for (int i=1;i<=l;i++) {
         int x;
-        cin >> x;
-        arr[x]++;
+        cin >> arr[i] >> arrb[i];
+    }
+    int m=0;
+
+    for (int i=1;i<=l;i++) {
+        for (int j=1;j<=l-i;j++)
+            if (arr[j] > arr[j+1]) {
+                // Swap
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+
+                temp = arrb[j];
+                arrb[j] = arrb[j+1];
+                arrb[j+1] = temp;
+            }
+    }
+    for (int i=1;i<=l;i++) {
+        if (arrb[i])
+            continue;
+        cout << arr[i] << ' ';
+    }
+    for (int i=1;i<=l;i++) {
+        if (!arrb[i])
+            continue;
+        cout << arr[i] << ' ';
     }
 
-    for (int i=100;i>=1;i--)
-        for (int j=1;j<=arr[i];j++)
-            cout << i << " ";
     return 0;
 }
 
