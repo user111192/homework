@@ -2,13 +2,19 @@
 
 ----
 
-设置变量时, **一定**要记得设定初始值。
-
-e. g. `sample.cpp`
 ```c++
 #include <iostream> 
 
 using namespace std; 
+
+...
+```
+
+设置变量时, **一定**要记得设定初始值。
+
+e. g. `sample.cpp`
+```c++
+...
 
 int SampleA() {
     int bad; // not correct
@@ -27,10 +33,6 @@ int SampleA() {
 
 e. g. `sample.cpp`
 ```c++
-#include <iostream> 
-
-using namespace std; 
-
 ...
 
 int SampleB() {
