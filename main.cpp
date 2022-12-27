@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     int a[1001], b[1001],c[1002];
     for (int i=0;i<1001;i++) {
         s[i]='0';
-        a[i]=0, b[i]=0, c[i]=0;
+        a[i]=0, b[i]=0, c[i]=0; 
     }
     scanf("%s",s+1);
     int lena = strlen(s+1);
