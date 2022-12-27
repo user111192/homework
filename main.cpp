@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
                 printf("%d) %d - %d      = %d (%c)\n", i, a[i], b[i], a[i] - b[i] + c[i],
                        (t == 0 ? '0' : (t >= 0) ? 'P' : 'N'));
             else
-                prin3tf("%d) %d - %d + %d = %d (%c)\n", i, a[i], b[i], c[i], a[i] - b[i] + c[i],
+                printf("%d) %d - %d + %d = %d (%c)\n", i, a[i], b[i], c[i], a[i] - b[i] + c[i],
                        (t == 0 ? '0' : (t >= 0) ? 'P' : 'N'));
         }
         c[i] = a[i] - b[i] + c[i];
