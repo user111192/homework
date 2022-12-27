@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
         // If c[i] < 0, then c[i] is negative.
         if (c[i] < 0) {
             if (DEBUG_MODE) {
-                printf("If c[i(=%d)] (now: %d) < 0, then %d is negative. \n", i, c[i], c[i]);
+                printf("If c[i(=%d)](=%d) < 0, then %d is negative. \n", i, c[i], c[i]);
                 printf("then --c[i+1(=%d)]. c[%d] now is %d (raw: %d). \n",i+1,i+1,c[i+1]-1,c[i+1]);
                 printf("then c[i(=%d)] += 10. (%d -> %d now)\n",i,c[i],c[i]+10);
             }
