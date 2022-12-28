@@ -1,0 +1,7 @@
+blank_issues_enabled: true
+contact_links:
+ - name: FAQ
+   url: about:blank
+   about: Answers to frequently asked questions about 1.16+
+ - name: What is this? 
+   url: about:blank
