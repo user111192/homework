@@ -16,5 +16,5 @@ message(DEBUG "Adding Executable...")
 #add_compile_options(-Wall -Wextra)
 add_compile_options(-lm)
 add_executable(homework main.cpp libraries.h app/framework.cpp app/String.cpp
-        app/String.h app/lib/std.cpp.h fastutil.h app/Number.cpp app/Number.h)
+        app/String.h app/lib/std.cpp.h fastutil.h)
 message(STATUS "Added Executable.")
