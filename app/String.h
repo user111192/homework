@@ -30,6 +30,7 @@ public:
     String & operator=(const char *);
     char & operator[](int i);
     const char & operator[](int i) const;
+    operator bool() const;
     friend bool operator<(const String &st, const String &st2);
     friend bool operator>(const String &st, const String &st2);
     friend bool operator==(const String &st, const String &st2);

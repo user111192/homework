@@ -84,6 +84,10 @@ ostream & operator<< (ostream & os, const String & st) {
     return os;
 }
 
+String::operator bool() const {
+    return len!=0;
+}
+
 istream & operator>> (istream & is, String & st) {
     char temp[String::CINLIM];
     is.get(temp, String::CINLIM);

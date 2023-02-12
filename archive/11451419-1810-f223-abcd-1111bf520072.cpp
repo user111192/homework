@@ -12,7 +12,7 @@
 // Import namespace 'std'
 using namespace std;
 
-bool DEBUG_MODE  = true;
+bool DEBUG_MODE = true;
 
 // Main Function
 int main(int argc, char **argv) {
@@ -23,51 +23,41 @@ int main(int argc, char **argv) {
      * 2-D Array (char)
      * @return Exit code
      */
+
     char s[1001];
-    int a[1001], b[1001],c[1002];
-    for (int i=0;i<1001;i++) {
-        s[i]='0';
-        a[i]=0, b[i]=0, c[i]=0;
+    int a[1001], b[1001], c[1002];
+    for (int i = 0; i < 1001; i++) {
+        s[i] = '0';
+        a[i] = 0, b[i] = 0, c[i] = 0;
     }
-    scanf("%s",s+1);
-    int lena = strlen(s+1);
+    scanf("%s", s + 1);
+    int lena = strlen(s + 1);
 
-    for (int i=1;i<=lena+1;i++)
-        a[i] = s[lena-i+1] - '0';
+    for (int i = 1; i <= lena + 1; i++)
+        a[i] = s[lena - i + 1] - '0';
 
-    scanf("%s",s+1);
-    int lenb = strlen(s+1);
+    scanf("%s", s + 1);
+    int lenb = strlen(s + 1);
 
-    for (int i=1;i<=lenb+1;i++)
-        b[i] = s[lenb-i+1] - '0';
-
+    for (int i = 1; i <= lenb + 1; i++)
+        b[i] = s[lenb - i + 1] - '0';
 
 
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     int lenc = lena;
-#if 0
-    int orlenc = lenc;
-#warning 美化后的代码不要直接提交到oj, 会Wrong Answer! ! !
-    printf("  ");
-    for (int i=lena;i>0;i--)
-        printf("%d",a[i]);
-    printf("\n- ");
-    for (int i=lenb;i>0;i--)
-        printf("%d",b[i]);
-    printf("\n");
-    for (int i=lenc+2;i>=1;i--)
-        printf("-");
-    printf("\n");
-#endif
 
-    for (int i=1;i<=1001;i++)
+    for (int i = 1; i <= 1001; i++)
         c[i] = 0;
-    for (int i=1;i<=lenc;i++) {
+    for (int i = 1; i <= lenc; i++) {
         if (DEBUG_MODE) {
-            int t=a[i]-b[i]+c[i];
-            if (c[i] == 0)
-                printf("%d) %d - %d      = %d (%c)\n", i, a[i], b[i], a[i] - b[i] + c[i],(t==0?'0':(t >= 0)?'P':'N'));
+            int t = a[i] - b[i] + c[i];
+            if (b[i] == 0 && c[i] == 0)
+                printf("%d) %d ----------> %d (%c)\n", i, a[i], a[i] - b[i] + c[i],
+                       (t == 0 ? '0' : (t >= 0) ? 'P' : 'N'));
+            else if (c[i] == 0)
+                printf("%d) %d - %d      = %d (%c)\n", i, a[i], b[i], a[i] - b[i] + c[i],
+                       (t == 0 ? '0' : (t >= 0) ? 'P' : 'N'));
             else
                 printf("%d) %d - %d + %d = %d (%c)\n", i, a[i], b[i], c[i], a[i] - b[i] + c[i],
                        (t == 0 ? '0' : (t >= 0) ? 'P' : 'N'));
@@ -76,30 +66,27 @@ int main(int argc, char **argv) {
         // If c[i] < 0, then c[i] is negative.
         if (c[i] < 0) {
             if (DEBUG_MODE) {
-                printf("If c[i(=%d)] (now: %d) < 0, then %d is negative. \n", i, c[i], c[i]);
-                printf("then --c[i+1(=%d)]. c[%d] now is %d (raw: %d). \n",i+1,i+1,c[i+1]-1,c[i+1]);
-                printf("then c[i(=%d)] += 10. (%d -> %d now)\n",i,c[i],c[i]+10);
+                printf("If c[i(=%d)](=%d) < 0, then %d is negative. \n", i, c[i], c[i]);
+                printf("then --c[i+1(=%d)]. c[%d] now is %d (raw: %d). \n", i + 1, i + 1, c[i + 1] - 1, c[i + 1]);
+                printf("then c[i(=%d)] += 10. (%d -> %d now)\n", i, c[i], c[i] + 10);
             }
-            --c[i+1];
+            --c[i + 1];
             c[i] += 10;
         }
     }
     // 处理位数溢出
-    while (c[lenc]==0 && lenc > 1)
+    while (c[lenc] == 0 && lenc > 1)
         --lenc;
-#if 0
-#warning 美化后的代码不要直接提交到oj, 会Wrong Answer! ! !
-    for (int i=orlenc-lenc+2;i>=1;i--)
-        printf(" ");
-#endif
-    for (int i=lenc;i>=1;i--)
+
+    for (int i = lenc; i >= 1; i--) {
         printf("%d", c[i]);
+    }
     return 0;
+
+
 }
 
 
 // Functions Definition
-
-
 
 

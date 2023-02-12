@@ -21,21 +21,22 @@ int main(int argc, char **argv) {
      */
     // 读入数组
     int l;
-    cin >> l;
-    int arr[l];
-    for (int i=0;i<l;i++)
-        cin >> arr[i];
-    for (int i=0;i<l-1;i++) {
-        int MinPoint = i;
-        for (int j=i;j<l;j++) {
-            if (arr[j] < arr[MinPoint])
-                MinPoint = j;
+    scanf("%d",&l);
+    int arr[l + 1];
+    for (int i=1; i <= l; i++) {
+        scanf("%d",arr+i);
+    }
+    for (int i=1;i<=l;i++) {
+        int MaxPoint = i;
+        for (int j=i+1;j<=l;j++) {
+            if (arr[j] > arr[MaxPoint])
+                MaxPoint = j;
         }
         // Swap
         int temp;
         temp = arr[i];
-        arr[i] = arr[MinPoint];
-        arr[MinPoint] = temp;
+        arr[i] = arr[MaxPoint];
+        arr[MaxPoint] = temp;
     }
     for (int i=0;i<l;i++)
         cout << arr[i] << " ";

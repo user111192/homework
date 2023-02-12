@@ -1,6 +1,20 @@
 cmake_minimum_required(VERSION 3.23)
 project(homework)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
+message(STATUS "Set C++ Standard: C++ 17")
 
-add_executable(homework main.cpp libraries.h app/framework.cpp app/lib/std.cpp.h app/String.cpp app/String.h fastutil.h)
+
+
+
+message("CMAKE_MINIMUM_REQUIRED_VERSION: ${CMAKE_MINIMUM_REQUIRED_VERSION}")
+
+
+message(STATUS "Project Source Directory: ${PROJECT_SOURCE_DIR}")
+
+message(DEBUG "Adding Executable...")
+#add_compile_options(-Wall -Wextra)
+add_compile_options(-lm)
+add_executable(homework main.cpp libraries.h app/framework.cpp app/String.cpp
+        app/String.h app/lib/std.cpp.h fastutil.h app/Number.cpp app/Number.h)
+message(STATUS "Added Executable.")
