@@ -50,7 +50,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: Build Files
+        name: Build Files (${{ matrix.os }})
         path: ${{github.workspace}}/build
 
         if-no-files-found: warn
