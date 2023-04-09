@@ -1,73 +1,56 @@
-// Import Libraries
-#include <iostream> // IO Library
+#include <iostream>
 #include <cstdio>
-#include <cstring>
-#include <fstream>
-#include <algorithm>
-#include <cmath>
 #include <cstdlib>
-#include <sstream>
-#include <vector>
-#ifndef ONLINE_JUDGE
-// #include "libraries.h"
-// #include "app/framework.cpp"
-#endif
 
-
-
-// Import namespace 'std'
 using namespace std;
+const int MAX = 10002;
 
-bool DEBUG_MODE = true;
+void print_memo_use();
 
-typedef long long ll;
+int n, c[11];
 
-struct Struct {
-    int a,b;
-} q[100001];
-int rear=0,front=1;
+inline void dfs(int i) {
+    // printf("%d->",i);
+    if (i == n + 1) {
+        for (int j = 1; j <= n; j++)
+            printf("%d", c[j]);
 
-void push(int a,int b) {
-    q[++rear].a = a;
-    q[rear].b = b;
-}
-bool empty() {
-    return (rear+1==front);
-}
-void pop() {
-    if (empty()) return;
-    ++front;
-}
-const Struct & query(int k) {
-    return q[front+k-1];
-}
-
-#define RequestAnInt "%d"
-
-// Main Function
-int main(int argc, char *argv[]) {
-    int n;
-    int t;
-    scanf("%d",&n);
-    for (int i=1;i<=n;i++) {
-        scanf("%d",&t);
-        if (t==1) {
-            int xx,yy;
-            scanf("%d%d",&xx,&yy);
-            push(xx,yy);
-        } else {
-            if (empty()) {
-                printf("error\n");
-            } else {
-                printf("%d %d\n",query(1).a,query(1).b);
-                pop();
-            }
-        }
+        printf("\n");
+        return;
     }
+    c[i] = 0;
+    dfs(i + 1);
+    c[i] = 1;
+    dfs(i + 1);
+}
+
+int main() {
+    scanf("%d", &n);
+    dfs(1);
+    // ans = k[n];
+    // cout << ans;
+    // 这一段是输出程序运行时间, 提交到oj时要删掉
+    // [-提交到oj时删除-
+    double t_used = (1.0 * clock()) / CLOCKS_PER_SEC;
+    printf("Time: %lfs %s \n", t_used, (t_used < 1) ? "\33[32mOK\33[0m" : "\33[31mFAIL\33[0m");
+    print_memo_use();
+    // -]
     return 0;
 }
 
+void print_memo_use() {
+    double mem_used;
+    FILE *ff = nullptr;
+    int pid = 0;
 
-// Functions Definition
-
-
+    system("pgrep homework > xxs");
+    ff = fopen("xxs", "r");
+    fscanf(ff, "%d", &pid);
+    char pidc[101]{};
+    sprintf(pidc, "top -pid %d -l 1 | tail -n 1 | awk '{print $8}' > xt", pid);
+    system(pidc);
+    ff = fopen("xt", "r");
+    fscanf(ff, "%lf", &mem_used);
+    mem_used /= 1000.0;
+    printf("Memory: %lfMB %s\n", mem_used, (mem_used < 128) ? "\33[32mOK\33[0m" : "\33[31mFAIL\33[0m");
+}
