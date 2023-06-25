@@ -1,39 +1,25 @@
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
+#include <bits/stdc++.h>
+//       ^^^^^^^^^^^^^^^
+// 你看头文件也是老师的写法.
 
 using namespace std;
-const int MAX = 10002;
+const int MAX = 110;
+const int P = 1000000007;
 
-void print_memo_use();
 
-int n, c[11];
+// 声 明
+// 我的代码完全按照老师的做法来写, 没有使用其他方法。
 
-inline void dfs(int i) {
-    // printf("%d->",i);
-    if (i == n + 1) {
-        for (int j = 1; j <= n; j++)
-            printf("%d", c[j]);
 
-        printf("\n");
-        return;
-    }
-    c[i] = 0;
-    dfs(i + 1);
-    c[i] = 1;
-    dfs(i + 1);
-}
 
 int main() {
-    scanf("%d", &n);
-    dfs(1);
-    // ans = k[n];
-    // cout << ans;
+
+
     // 这一段是输出程序运行时间, 提交到oj时要删掉
     // [-提交到oj时删除-
     double t_used = (1.0 * clock()) / CLOCKS_PER_SEC;
-    printf("Time: %lfs %s \n", t_used, (t_used < 1) ? "\33[32mOK\33[0m" : "\33[31mFAIL\33[0m");
-    print_memo_use();
+    //printf("Time: %lfs %s \n", t_used, (t_used < 1) ? "\33[32mOK\33[0m" : "\33[31mFAIL\33[0m");
+    //print_memo_use();
     // -]
     return 0;
 }

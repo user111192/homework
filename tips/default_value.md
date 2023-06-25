@@ -28,6 +28,7 @@ int SampleA() {
 ```
 -389148303 0
 ```
+~~(第一个数其实每一次运行都不一样)~~
 
 ## 数组
 
@@ -43,8 +44,9 @@ int SampleB() {
     for (int i=0;i<100;i++) 
         good[i] = 0;
     // It is correct
+    // or: memset(good, 0, sizeof(good)); 
     
     return 0; 
 }
 ```
-执行`sample.cpp`中的函数`SampleB()`, 前者还有相同的问题。
+执行`sample.cpp`中的函数`SampleB()`, 前者`bad`数组还有相同的问题。
