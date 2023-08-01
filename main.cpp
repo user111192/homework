@@ -3,16 +3,15 @@
 // 你看头文件也是老师的写法.
 
 using namespace std;
-const int MAX = 110;
-const int P = 1000000007;
-
-
-// 声 明
-// 我的代码完全按照老师的做法来写, 没有使用其他方法。
+const int MAX = 5;
+typedef long long ll;
+const ll inf = 1ll << 60;
 
 
 
 int main() {
+
+
 
 
     // 这一段是输出程序运行时间, 提交到oj时要删掉
@@ -27,13 +26,13 @@ int main() {
 void print_memo_use() {
     double mem_used;
     FILE *ff = nullptr;
-    int pid = 0;
+    ll pid = 0;
 
     system("pgrep homework > xxs");
     ff = fopen("xxs", "r");
     fscanf(ff, "%d", &pid);
     char pidc[101]{};
-    sprintf(pidc, "top -pid %d -l 1 | tail -n 1 | awk '{print $8}' > xt", pid);
+    sprintf(pidc, "top -pid %d -l 1 | tail -n 1 | awk '{prll $8}' > xt", pid);
     system(pidc);
     ff = fopen("xt", "r");
     fscanf(ff, "%lf", &mem_used);

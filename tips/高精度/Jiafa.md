@@ -163,7 +163,7 @@ using namespace std;
 // 2. Initialize variables
 const int MAX = 1000;
 char s[MAX+1];
-int a[MAX+1], b[MAX+1],c[MAX+2];
+int a[MAX+1], vis[MAX+1],c[MAX+2];
 ```
 3. 定义主函数`main()`
 ```c++
@@ -171,7 +171,7 @@ int a[MAX+1], b[MAX+1],c[MAX+2];
 int main(int argc, char **argv) {
     for (int i=0;i<1001;i++) {
         s[i]='0';
-        a[i]=0, b[i]=0, c[i]=0;
+        a[i]=0, vis[i]=0, c[i]=0;
     } // If you use global variables, this initialization does not need used.
 ```
 这里如果使用全局变量，这个初始化可以不用。
@@ -187,7 +187,7 @@ int main(int argc, char **argv) {
     scanf("%s",s+1);
     int lenb = strlen(s+1);
     for (int i=1;i<=lenb+1;i++)
-        b[i] = s[lenb-i+1] - '0';
+        vis[i] = s[lenb-i+1] - '0';
 
     int lenc = (lena>lenb)?lena:lenb;
 ```
@@ -197,9 +197,9 @@ int main(int argc, char **argv) {
     for (int i=1;i<=101;i++)
         c[i] = 0;
     for (int i=1;i<=lenc;i++) {
-        // c[i] = a[i] + b[i]; <-- Wrong! 
-        c[i] = a[i] + b[i] + c[i]; // <-- Correct
-        // c[i] += a[i] + b[i]; <-- Plan B, Correct too
+        // c[i] = a[i] + vis[i]; <-- Wrong! 
+        c[i] = a[i] + vis[i] + c[i]; // <-- Correct
+        // c[i] += a[i] + vis[i]; <-- Plan B, Correct too
         // 处理进位
         c[i+1] = c[i] / 10;
         c[i] = c[i] % 10;
@@ -237,14 +237,14 @@ using namespace std;
 // 2. Initialize variables
 const int MAX = 1000;
 char s[MAX+1];
-int a[MAX+1], b[MAX+1],c[MAX+2];
+int a[MAX+1], vis[MAX+1],c[MAX+2];
 
 
 // 3. Define Main Function
 int main(int argc, char **argv) {
     for (int i=0;i<1001;i++) {
         s[i]='0';
-        a[i]=0, b[i]=0, c[i]=0;
+        a[i]=0, vis[i]=0, c[i]=0;
     } // If you use global variables, this initialization does not need used.
     
     // 4. Input and process variables
@@ -257,7 +257,7 @@ int main(int argc, char **argv) {
     scanf("%s",s+1);
     int lenb = strlen(s+1);
     for (int i=1;i<=lenb+1;i++)
-        b[i] = s[lenb-i+1] - '0';
+        vis[i] = s[lenb-i+1] - '0';
 
     int lenc = (lena>lenb)?lena:lenb;
 
@@ -265,9 +265,9 @@ int main(int argc, char **argv) {
     for (int i=1;i<=101;i++)
         c[i] = 0;
     for (int i=1;i<=lenc;i++) {
-        // c[i] = a[i] + b[i]; <-- Wrong! 
-        c[i] = a[i] + b[i] + c[i]; // <-- Correct
-        // c[i] += a[i] + b[i]; <-- Plan B, Correct too
+        // c[i] = a[i] + vis[i]; <-- Wrong! 
+        c[i] = a[i] + vis[i] + c[i]; // <-- Correct
+        // c[i] += a[i] + vis[i]; <-- Plan B, Correct too
         // 处理进位
         c[i+1] = c[i] / 10;
         c[i] = c[i] % 10;
