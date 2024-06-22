@@ -15,6 +15,7 @@ message(STATUS "Project Source Directory: ${PROJECT_SOURCE_DIR}")
 message(DEBUG "Adding Executable...")
 #add_compile_options(-Wall -Wextra)
 add_compile_options(-lm)
+add_compile_definitions(DEBUGON)
 message(STATUS "Add Math Library")
 add_executable(homework main.cpp libraries.h app/framework.cpp app/String.cpp
         app/String.h app/lib/std.cpp.h fastutil.h)
